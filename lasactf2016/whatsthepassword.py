@@ -1,3 +1,7 @@
+'''
+George Skouroupathis
+tags:
+'''
 
 def get_passwords(textFile):
     with open(textFile) as f:
@@ -10,6 +14,7 @@ def solve_it(passwords):
     for pwd in passwords[1:]:
         startIndex = 0
         for char in pwd:
+            pass
 
 
 if __name__ == "__main__":

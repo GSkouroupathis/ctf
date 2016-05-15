@@ -1,4 +1,10 @@
 #!/bin/sh
+
+#
+# George Skouroupathis
+# tags: pgp, gpg, public key, keyserver
+#
+
 # Searched PGP keyservers for given key ID
 
 echo Searching for $1

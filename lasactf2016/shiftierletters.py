@@ -1,3 +1,8 @@
+'''
+George Skouroupathis
+tags: socket, scrapping, caesar cipher
+'''
+
 import requests, re, socket
 
 

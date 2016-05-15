@@ -1,3 +1,8 @@
+'''
+George Skouroupathis
+tags: modified vigenere
+'''
+
 # Problem is modified vigenere, this won't work
 # check https://f00l.de/hacking/vigenere.php
 
@@ -27,5 +32,5 @@ for e in ff:
     else:
          d = '\n'
     deciphered += d
-    
+
 print deciphered

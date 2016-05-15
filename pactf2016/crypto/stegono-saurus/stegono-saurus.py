@@ -1,3 +1,8 @@
+'''
+George Skouroupathis
+tags: steganography
+'''
+
 a=open('a.txt', 'r+')
 b=open('b.txt', 'r+')
 

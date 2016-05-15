@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- tags: md5, sql injection, application/x-www-form-urlencoded -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <title>Fake Grades!</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="md5.min.js"></script>
+    <script src="jquery-1.12.3.min.js"></script>
+</head>
+<body>
+    <!-- Begin Navbar -->
+    <nav>
+        <div class="nav-wrapper" style="background: #39F;">
+            <a href="#" class="brand-logo center">Fake, Inc.</a>
+        </div>
+    </nav>
+    <!-- End navbar -->
+
+    <!-- Begin product selection -->
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h1> <center> Welcome fakes! </center> </h1>
+                <h2> <center> Check your fakes here!</center> </h2>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col m12 l12">
+              <div class="card">
+                <div class="card-content">
+                  <form>
+                      Enter name: <input type="text" id='info'>
+                      <input id="submit" type="submit" value="Check my grades!" class="waves-effect waves-light btn">
+                    </form>
+                    <!-- This is just to produce the correct POST body and put it into the 'results' div -->
+                    <script>
+                      document.getElementById('submit').addEventListener('click',
+                        function(event){
+                          event.preventDefault();
+                          var input = document.getElementById('info');
+                          //var query = 'SELECT * from Names where name=\'' + input.value + '\'';
+                          var inp_str = input.value;
+                          //inp_str = inp_str.replace(/\W+/g, " ");
+                          var md5_str = md5(inp_str);
+                          var send_str = inp_str+' '+md5_str;
+                          send_str = encodeURIComponent(send_str);
+                          send_str = send_str.replace(/%20/g, "+");
+                          console.log(send_str);
+                          document.getElementById('results').innerHTML=send_str;
+                        }
+                      );
+
+                      /*document.getElementById('submit').addEventListener('click',
+                        function(event){
+                          event.preventDefault();
+                          var input = document.getElementById('info');
+                          //var query = 'SELECT * from Names where name=\'' + input.value + '\'';
+                          var inp_str = input.value;
+                          //inp_str = inp_str.replace(/\W+/g, " ");
+                          var md5_str = md5(inp_str);
+                          var send_str = inp_str+' '+md5_str;
+                          var post_data = {name: send_str, submit:1};
+                          $.ajax({
+                              type: "POST",
+                              url: "http://104.199.151.39/postQuery.php",
+                              data: post_data,
+                              success: function(data){document.getElementById('results').innerHTML=data;}
+                          });
+                        }
+                      );
+                      */
+                    </script>
+                  <div id="results"></div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End product selection-->
+
+</body>
+</html>

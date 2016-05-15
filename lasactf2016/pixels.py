@@ -1,3 +1,8 @@
+'''
+George Skouroupathis
+tags: pixels, pil, xor, qr code
+'''
+
 from PIL import Image, ImageDraw
 
 BLACK = (0, 0, 0, 255)
